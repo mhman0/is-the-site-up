@@ -1,4 +1,4 @@
-package controllers;
+package io.javasb.isthesiteup.controllers;
 //when creating a new class I was able to type the package name into the create class file 
 //which automatically create a package
 
@@ -45,17 +45,15 @@ public class UrlCheckController {
              * If not equal to 2 or 3 then it's none of the 200 or 300 response codes then likely the site is down
              */
             int responseCodeCategory = conn.getResponseCode() / 100;
-            if (responseCodeCategory !=2 || responseCodeCategory !=3){
+            if (responseCodeCategory != 2 || responseCodeCategory != 3) {
                 returnMessage = SITE_IS_DOWN;
             } else {
                 returnMessage = SITE_IS_UP;
             }
-            conn.getResponseCode();
 
         } catch (MalformedURLException e) {
             returnMessage = INCORRECT_URL;
-        }
- catch (IOException e) {// ioexception means that the site is down, so I will return a site down message
+        } catch (IOException e) {// ioexception means that the site is down, so I will return a site down message
             returnMessage = SITE_IS_DOWN;
         }
 
